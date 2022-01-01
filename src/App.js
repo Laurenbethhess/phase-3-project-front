@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React, { useEffect, useState } from 'react'
+import ItemList from './ItemList'
+import NewTodo from './NewTodo'
 
 function App() {
+  const [todos, setTodos] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:9292/todos')
+    .then(r => r.json())
+    .then(todos => setTodos(todos))
+  }, [])
+
+  function handleAddTodo(newTodo) {
+    setTodos([...todos, newTodo]);
+  }
+
+  function handleDeleteItem(id) {
+    const updatedTodos = todos.filter(todo => todo.id !== id)
+    setTodos(updatedTodos)
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <div>
+     <ItemList todos={todos} onTodoDelete={handleDeleteItem}/>
+     <NewTodo onAddTodo={handleAddTodo}/>
+   </div>
+  )
 }
 
 export default App;
