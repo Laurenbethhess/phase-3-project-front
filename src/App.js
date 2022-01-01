@@ -1,7 +1,8 @@
 import './App.css'
 import React, { useEffect, useState } from 'react'
-import ItemList from './ItemList'
-import NewTodo from './NewTodo'
+import ItemList from './Components/ItemList'
+import NewTodo from './Components/NewTodo'
+import Header from './Components/Header'
 
 function App() {
   const [todos, setTodos] = useState([])
@@ -21,10 +22,23 @@ function App() {
     setTodos(updatedTodos)
   }
 
+  function handleUpdateTodo(updatedTodoObj) {
+    const updatedTodos = todos.map(todo => {
+      if (todo.id === updatedTodoObj.id) {
+        return updatedTodoObj;
+      } else {
+        return todo;
+      }
+    });
+    setTodos(updatedTodos);
+  }
+
 
   return (
-   <div>
-     <ItemList todos={todos} onTodoDelete={handleDeleteItem}/>
+   <div className="center">
+     <Header />
+     <ItemList todos={todos} onTodoDelete={handleDeleteItem} onUpdateTodo={handleUpdateTodo}/>
+     <br/>
      <NewTodo onAddTodo={handleAddTodo}/>
    </div>
   )
