@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 function NewTodo({onAddTodo}) {
-    const [todo, setTodo] = useState("")
-    const [importance, setImportance] = useState("")
-    const [category_id, setCategoryId] = useState("")
+    const [todo, setTodo] = useState("/")
+    const [importance, setImportance] = useState("/")
+    const [category_id, setCategoryId] = useState("/")
 
     function handleSubmit(e) {
       e.preventDefault()
@@ -22,14 +22,15 @@ function NewTodo({onAddTodo}) {
         .then((r) => r.json())
         .then(newTodo => {
           onAddTodo(newTodo)
-          setTodo("")
-          setImportance("")
-          setCategoryId("")
+          setTodo("/")
+          setImportance("/")
+          setCategoryId("/")
         });
     }
   
     return (
       <form onSubmit={handleSubmit}>
+        <label>Todo</label>
         <input
           type="text"
           name="item"
@@ -38,6 +39,7 @@ function NewTodo({onAddTodo}) {
           placeholder="item"
           onChange={(e) => setTodo(e.target.value)}
         />
+        <label>Importance</label>
         <input
           type="text"
           name="importance"
@@ -46,6 +48,7 @@ function NewTodo({onAddTodo}) {
           placeholder="importance"
           onChange={(e) => setImportance(e.target.value)}
         />
+        <label>Category Id</label>
         <input
           type="text"
           name="category_id"

@@ -29,6 +29,7 @@ function EditTodo({onUpdateTodo, todo}) {
           name="body"
           autoComplete="off"
           value={todoUpdate}
+          placeholder="edit"
           onChange={(e) => setTodoUpdate(e.target.value)}
         />
         <input type="submit" value="Save" />

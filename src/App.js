@@ -37,9 +37,12 @@ function App() {
   return (
    <div className="center">
      <Header />
-     <ItemList todos={todos} onTodoDelete={handleDeleteItem} onUpdateTodo={handleUpdateTodo}/>
-     <br/>
+     <h2>Enter New Todo</h2>
      <NewTodo onAddTodo={handleAddTodo}/>
+     <>_______________________________________________</>
+     <br/><br/>
+     <ItemList todos={todos} onTodoDelete={handleDeleteItem} onUpdateTodo={handleUpdateTodo}/>
+     <br/><br/>
    </div>
   )
 }

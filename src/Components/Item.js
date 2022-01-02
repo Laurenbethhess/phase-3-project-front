@@ -16,9 +16,16 @@ function Item({todo, onTodoDelete, onUpdateTodo}) {
     
     return (
         <div>
-                <li>{todo.item} - importance:{todo.importance} - category:{todo.category.category} 
-                <button onClick={handleDeleteClick}>🗑</button>
-                <EditTodo onUpdateTodo={handleUpdateTodo} todo={todo}/>
+                <li>
+                    <b>{todo.item.toUpperCase()}</b> 
+                    <EditTodo onUpdateTodo={handleUpdateTodo} todo={todo}/>
+                    <p>importance:{todo.importance}</p> 
+                    <p>category:{todo.category.category}</p>
+                    <button onClick={handleDeleteClick}>🗑</button>
+                    <br/><br/>
+                    <>_______________________________________________</>
+                    <br/><br/>
+
                 </li>
         </div>
     )
