@@ -7,9 +7,7 @@ function Category({category}) {
             {category.id}:  {category.category}
         </div>
     )
-
 }
-
 export default Category
 
 
