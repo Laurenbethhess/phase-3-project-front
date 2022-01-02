@@ -19,13 +19,13 @@ function NewTodo({onAddTodo}) {
           category_id: category_id
         }),
       })
-        .then((r) => r.json())
-        .then(newTodo => {
-          onAddTodo(newTodo)
-          setTodo("/")
-          setImportance("/")
-          setCategoryId("/")
-        });
+      .then((r) => r.json())
+      .then(newTodo => {
+        onAddTodo(newTodo)
+        setTodo("/")
+        setImportance("/")
+        setCategoryId("/")
+      })
     }
   
     return (

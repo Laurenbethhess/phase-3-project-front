@@ -6,7 +6,6 @@ import Header from './Components/Header'
 
 function App() {
   const [todos, setTodos] = useState([])
-  const [todosList, setTodosList] = useState([])
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -21,19 +20,13 @@ function App() {
     .then(categories => setCategories(categories))
   }, [])
 
-  useEffect(() => {
-    fetch('http://localhost:9292/todos-alphabetical')
-    .then(r => r.json())
-    .then(todosList => setTodosList(todosList))
-  }, [])
-
   function handleAddTodo(newTodo) {
-    setTodos([...todos, newTodo]);
+    setTodos([...todos, newTodo])
   }
 
-  function handleDeleteItem(id) {
-    const updatedTodos = todos.filter(todo => todo.id !== id)
-    setTodos(updatedTodos)
+  const handleDeleteItem = (id) => {
+    const finalTodos = todos.filter(todo => todo.id !== id)
+    setTodos(finalTodos)
   }
 
   function handleUpdateTodo(updatedTodoObj) {
@@ -46,11 +39,9 @@ function App() {
     });
     setTodos(updatedTodos);
   }
-
-
   return (
    <div className="center">
-     <Header categories={categories} todosList={todosList}/>
+     <Header categories={categories} todos={todos}/>
      <h2>Enter New Todo</h2>
      <NewTodo onAddTodo={handleAddTodo}/>
      <>_______________________________________________</>

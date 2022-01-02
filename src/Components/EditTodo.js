@@ -15,11 +15,11 @@ function EditTodo({onUpdateTodo, todo}) {
           item: todoUpdate,
         }),
       })
-        .then((r) => r.json())
-        .then(updatedTodo => {
-            onUpdateTodo(updatedTodo)
-            setTodoUpdate('')
-        })
+      .then((r) => r.json())
+      .then(updatedTodo => {
+          onUpdateTodo(updatedTodo)
+          setTodoUpdate('')
+      })
     }
   
     return (

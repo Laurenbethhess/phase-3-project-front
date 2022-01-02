@@ -7,7 +7,7 @@ function Item({todo, onTodoDelete, onUpdateTodo}) {
         fetch(`http://localhost:9292/todos/${todo.id}`, {
           method: "DELETE",
         })
-        onTodoDelete(todo.id);
+        onTodoDelete(todo.id)
     }
 
     function handleUpdateTodo(updatedTodo) {

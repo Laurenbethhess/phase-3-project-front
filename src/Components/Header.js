@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Category from './Category'
+import TodoList from './TodoList'
 
-function Header({categories, todosList}) {
-    const renderCategories = categories.map(category => <Category category={category} />)
-    const renderTodosList = todosList.map(todosListItem => <li>{todosListItem}</li>)
+function Header({categories, todos}) {
+    const renderCategories = categories.map(category => <Category category={category} key={category.id}/>)
+    const renderTodosList = todos.map(todo => <TodoList todo={todo} key={todo.id}/>)
 
 
     return (
