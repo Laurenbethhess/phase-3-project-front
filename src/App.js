@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import ItemList from './Components/ItemList'
 import NewTodo from './Components/NewTodo'
 import Header from './Components/Header'
-import SearchBar from './Components/SearchBar'
 
 function App() {
   const [todos, setTodos] = useState([])
@@ -36,7 +35,7 @@ function App() {
 
   return (
    <div className="center">
-     <Header todos={todos}/>
+     <Header todos={todos} onTodoDelete={handleDeleteItem}/>
      <h2>Enter New Todo</h2>
      <NewTodo onAddTodo={handleAddTodo}/>
      <>_______________________________________________</>
