@@ -19,7 +19,6 @@ function Item({todo, onTodoDelete, onUpdateTodo}) {
                 <li>
                     <b>{todo.item.toUpperCase()}</b> 
                     <EditTodo onUpdateTodo={handleUpdateTodo} todo={todo}/>
-                    <p>importance:{todo.importance}</p> 
                     <p>category:{todo.category.category}</p>
                     <button onClick={handleDeleteClick}>🗑</button>
                     <br/><br/>

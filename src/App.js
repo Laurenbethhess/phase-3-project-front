@@ -40,7 +40,7 @@ function App() {
      <h2>Enter New Todo</h2>
      <NewTodo onAddTodo={handleAddTodo}/>
      <>_______________________________________________</>
-     <br/><br/>
+     <br/>
      <ItemList todos={todos} onTodoDelete={handleDeleteItem} onUpdateTodo={handleUpdateTodo}/>
      <br/><br/>
    </div>

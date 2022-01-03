@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 
 function NewTodo({onAddTodo}) {
     const [todo, setTodo] = useState("")
-    const [importance, setImportance] = useState("")
+    const [importance, setImportance] = useState("3low")
     const [category_id, setCategoryId] = useState("0")
 
     function handleSubmit(e) {
-      e.preventDefault()
+      // e.preventDefault()
   
       fetch("http://localhost:9292/todos", {
         method: "POST",
@@ -23,7 +23,7 @@ function NewTodo({onAddTodo}) {
       .then(newTodo => {
         onAddTodo(newTodo)
         setTodo("")
-        setImportance("")
+        setImportance("3low")
         setCategoryId("0")
       })
     }
@@ -40,18 +40,16 @@ function NewTodo({onAddTodo}) {
           onChange={(e) => setTodo(e.target.value)}
         />
         <label>Importance</label>
-        <input
-          type="text"
-          name="importance"
-          autoComplete="off"
-          value={importance}
-          placeholder="importance"
-          onChange={(e) => setImportance(e.target.value)}
-        />
+        <select onChange={(e) => setImportance(e.target.value)}>
+          <option value="3low">Low</option>
+          <option value="2medium">Medium</option>
+          <option value="1high">High</option>
+        </select>
         <label>Category Id</label>
         <select onChange={(e) => setCategoryId(e.target.value)}>
           <option value="0">Not Assigned</option>
-          <option value="1">Work</option>
+          <option value="1">Chores</option>
+          <option value="2">Work</option>
           <option value="3">Exercise</option>
           <option value="4">Misc</option>
           <option value="5">Groceries</option>
