@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from 'react'
 
-function SearchBar({filterBy, onFilterBy}) {
-
-    const onFilterChange = (e) => {
-        onFilterBy(e.target.value)
+function SearchBar({onSearch}) {
+    const [search, setSearch] = useState('');
+      
+        function handleSubmit(e) {
+          e.preventDefault();
+          onSearch(search);
+        }
+      
+        const resetInputField = () => {
+          setSearch("");
+        };
+      
+        return (
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              id="search"
+              placeholder="search todos"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <br/>
+            <button type="submit">Search</button>
+            <button onClick={resetInputField}>Reset</button>
+          </form>
+        );
       }
-
-    return(
-        <div>
-        <strong>Filter:</strong>
-        <select onChange={onFilterChange} value={filterBy}>
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
-        </div>
-    )
-}
+    
+      
 
 export default SearchBar
