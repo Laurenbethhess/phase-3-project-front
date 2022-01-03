@@ -4,7 +4,7 @@ function TodoList({todo}) {
 
     return (
         <div>
-            <li>{todo.item}</li>
+            <li>{todo.item.toLowerCase()}</li>
         </div>
     )
 }

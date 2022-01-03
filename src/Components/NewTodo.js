@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 function NewTodo({onAddTodo}) {
-    const [todo, setTodo] = useState("/")
-    const [importance, setImportance] = useState("/")
-    const [category_id, setCategoryId] = useState("/")
+    const [todo, setTodo] = useState("")
+    const [importance, setImportance] = useState("")
+    const [category_id, setCategoryId] = useState("0")
 
     function handleSubmit(e) {
       e.preventDefault()
@@ -22,9 +22,9 @@ function NewTodo({onAddTodo}) {
       .then((r) => r.json())
       .then(newTodo => {
         onAddTodo(newTodo)
-        setTodo("/")
-        setImportance("/")
-        setCategoryId("/")
+        setTodo("")
+        setImportance("")
+        setCategoryId("0")
       })
     }
   
@@ -49,14 +49,14 @@ function NewTodo({onAddTodo}) {
           onChange={(e) => setImportance(e.target.value)}
         />
         <label>Category Id</label>
-        <input
-          type="text"
-          name="category_id"
-          autoComplete="off"
-          value={category_id}
-          placeholder="category_id"
-          onChange={(e) => setCategoryId(e.target.value)}
-        />
+        <select onChange={(e) => setCategoryId(e.target.value)}>
+          <option value="0">Not Assigned</option>
+          <option value="1">Work</option>
+          <option value="3">Exercise</option>
+          <option value="4">Misc</option>
+          <option value="5">Groceries</option>
+          <option value="6">Kids</option>
+        </select>
         <button type="submit">Add Todo</button>
       </form>
     )
