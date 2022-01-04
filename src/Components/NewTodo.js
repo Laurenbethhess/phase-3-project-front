@@ -6,7 +6,7 @@ function NewTodo({onAddTodo}) {
     const [category_id, setCategoryId] = useState("0")
 
     function handleSubmit(e) {
-      // e.preventDefault()
+      e.preventDefault()
   
       fetch("http://localhost:9292/todos", {
         method: "POST",
