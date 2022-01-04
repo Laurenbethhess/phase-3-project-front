@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
 function EditTodo({onUpdateTodo, todo}) {
-    const [todoUpdate, setTodoUpdate] = useState('');
+    const [newTodo, setTodo] = useState(todo.item)
+    const [importance, setImportance] = useState(todo.importance)
+    const [category_id, setCategoryId] = useState(todo.category_id)
+
 
     function handleFormSubmit(e) {
       e.preventDefault();
@@ -12,27 +15,49 @@ function EditTodo({onUpdateTodo, todo}) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          item: todoUpdate,
+          item: newTodo,
+          importance: importance,
+          category_id: category_id
         }),
       })
       .then((r) => r.json())
       .then(updatedTodo => {
           onUpdateTodo(updatedTodo)
-          setTodoUpdate('')
       })
     }
   
     return (
       <form onSubmit={handleFormSubmit}>
+       <label>Todo</label>
         <input
           type="text"
-          name="body"
+          name="item"
           autoComplete="off"
-          value={todoUpdate}
-          placeholder="edit"
-          onChange={(e) => setTodoUpdate(e.target.value)}
+          value={newTodo}
+          placeholder="item"
+          onChange={(e) => setTodo(e.target.value)}
         />
-        <input type="submit" value="Save" />
+        <label>Importance</label>
+        <select onChange={(e) => setImportance(e.target.value)}>
+          <option value={importance}>Update Importance</option>
+          <option value="1. high">High</option>
+          <option value="2. medium">Medium</option>
+          <option value="3. low">Low</option>
+          
+          
+        </select>
+        <label>Category</label>
+        <select onChange={(e) => setCategoryId(e.target.value)}>
+          <option value={category_id}>Update Category</option>
+          <option value="0">Not Assigned</option>
+          <option value="1">Chores</option>
+          <option value="2">Work</option>
+          <option value="3">Exercise</option>
+          <option value="4">Misc</option>
+          <option value="5">Groceries</option>
+          <option value="6">Kids</option>
+        </select>
+        <button type="submit">Update</button>
       </form>
     )
 }
