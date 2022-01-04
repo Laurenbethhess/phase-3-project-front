@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 function NewTodo({onAddTodo}) {
     const [todo, setTodo] = useState("")
-    const [importance, setImportance] = useState("3low")
+    const [importance, setImportance] = useState("1. high")
     const [category_id, setCategoryId] = useState("0")
 
     function handleSubmit(e) {
@@ -23,7 +23,7 @@ function NewTodo({onAddTodo}) {
       .then(newTodo => {
         onAddTodo(newTodo)
         setTodo("")
-        setImportance("3low")
+        setImportance("1. high")
         setCategoryId("0")
       })
     }
@@ -41,9 +41,9 @@ function NewTodo({onAddTodo}) {
         />
         <label>Importance</label>
         <select onChange={(e) => setImportance(e.target.value)}>
-          <option value="3low">Low</option>
-          <option value="2medium">Medium</option>
-          <option value="1high">High</option>
+          <option value="1. high">High</option>
+          <option value="2. medium">Medium</option>
+          <option value="3. low">Low</option>
         </select>
         <label>Category</label>
         <select onChange={(e) => setCategoryId(e.target.value)}>

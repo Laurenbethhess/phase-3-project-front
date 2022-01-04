@@ -16,7 +16,7 @@ function Header({todos, onTodoDelete}) {
             <h1>To-Do List</h1>
             <h2>All Todos</h2>
             {renderTodosListAll}
-            <h2>Filter by Category:</h2>
+            <h3>Filter by Category:</h3>
             <select onChange={onFilterChange} value={filterBy}>
                 <option value="">Choose Category</option>
                 <option value="not assigned">Not Assigned</option>
