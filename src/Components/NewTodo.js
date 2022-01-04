@@ -6,7 +6,7 @@ function NewTodo({onAddTodo}) {
     const [category_id, setCategoryId] = useState("0")
 
     function handleSubmit(e) {
-      // e.preventDefault()
+      e.preventDefault()
   
       fetch("http://localhost:9292/todos", {
         method: "POST",
@@ -45,7 +45,7 @@ function NewTodo({onAddTodo}) {
           <option value="2medium">Medium</option>
           <option value="1high">High</option>
         </select>
-        <label>Category Id</label>
+        <label>Category</label>
         <select onChange={(e) => setCategoryId(e.target.value)}>
           <option value="0">Not Assigned</option>
           <option value="1">Chores</option>
