@@ -16,7 +16,6 @@ function ItemList({todos, onTodoDelete, onUpdateTodo}) {
         <div>
             <h2>Search</h2> 
             <SearchBar onSearch={setSearch}/>
-            <>_______________________________________________</>
             <br/><br/>
             {renderTodos}
         </div>
