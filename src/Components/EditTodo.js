@@ -37,6 +37,7 @@ function EditTodo({onUpdateTodo, todo}) {
           placeholder="item"
           onChange={(e) => setTodo(e.target.value)}
         />
+        <br></br>
         <label>Importance</label>
         <select onChange={(e) => setImportance(e.target.value)}>
           <option value={importance}>Update Importance</option>
@@ -46,6 +47,7 @@ function EditTodo({onUpdateTodo, todo}) {
           
           
         </select>
+        <br></br>
         <label>Category</label>
         <select onChange={(e) => setCategoryId(e.target.value)}>
           <option value={category_id}>Update Category</option>

@@ -13,7 +13,8 @@ function SearchBar({onSearch}) {
         };
       
         return (
-          <form className='search' onSubmit={handleSubmit}>
+          
+          <form className='searchbar' onSubmit={handleSubmit}>
             <input
               type="text"
               id="search"
@@ -21,9 +22,9 @@ function SearchBar({onSearch}) {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <br/>
-            <button type="submit">Search</button>
-            <button onClick={resetInputField}>Reset</button>
+            
+            <button id='enter' type="submit">Search</button>
+            <button id='reset' onClick={resetInputField}>Reset</button>
           </form>
         );
       }

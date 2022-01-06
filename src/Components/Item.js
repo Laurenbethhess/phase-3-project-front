@@ -3,6 +3,12 @@ import EditTodo from './EditTodo';
 
 function Item({todo, onTodoDelete, onUpdateTodo}) {
 
+    const [editor, setEditor] = useState(false)
+
+    function handleClick() {
+        setEditor(!editor)
+    }
+
     function handleDeleteClick() {
         fetch(`http://localhost:9292/todos/${todo.id}`, {
           method: "DELETE",
@@ -13,14 +19,20 @@ function Item({todo, onTodoDelete, onUpdateTodo}) {
     function handleUpdateTodo(updatedTodo) {
         onUpdateTodo(updatedTodo)
       }
+
+    function getEditor() {
+        if (editor)
+        return <EditTodo onUpdateTodo={handleUpdateTodo} todo={todo}/>
+    }
     
     return (
-        <div>
-                <li>
+        <div className='list'>
+                <li className='todo'>
                     <b>{todo.item.toUpperCase()}</b> 
-                    <p>importance: {todo.importance}</p>
-                    <p>category: {todo.category.category}</p>
-                    <EditTodo onUpdateTodo={handleUpdateTodo} todo={todo}/>
+                    <p>Importance: {todo.importance}</p>
+                    <p>Category: {todo.category.category}</p>
+                    <button onClick={handleClick}>Edit</button>
+                    {getEditor()}
                     <br/><br/>
                     <button onClick={handleDeleteClick}>🗑</button>
                     <br/><br/>

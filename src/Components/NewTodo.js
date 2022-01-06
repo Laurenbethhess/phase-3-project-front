@@ -29,6 +29,8 @@ function NewTodo({onAddTodo}) {
     }
   
     return (
+      <div className='new-todo'>
+      <h2>Add New Todo</h2>
       <form onSubmit={handleSubmit}>
         <label>Todo</label>
         <input
@@ -57,6 +59,7 @@ function NewTodo({onAddTodo}) {
         </select>
         <button type="submit">Add Todo</button>
       </form>
+      </div>
     )
 }
 

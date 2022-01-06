@@ -6,6 +6,7 @@ import Header from './Components/Header'
 
 function App() {
   const [todos, setTodos] = useState([])
+  
 
   useEffect(() => {
     fetch('http://localhost:9292/todos')
@@ -33,15 +34,19 @@ function App() {
     setTodos(updatedTodos);
   }
 
+  
+
+
+
   return (
    <div className="center">
-      <div className='organize'>
-      <Header todos={todos} onTodoDelete={handleDeleteItem}/>
-      <ItemList todos={todos} onTodoDelete={handleDeleteItem} onUpdateTodo={handleUpdateTodo}/>
-      </div>
-      <h2 className='third-line'>Enter New Todo</h2>
+      <Header/>
       <NewTodo onAddTodo={handleAddTodo}/>
-      <>_______________________________________________</>
+      
+     
+      <ItemList todos={todos} onTodoDelete={handleDeleteItem} onUpdateTodo={handleUpdateTodo}/>
+      
+      
       <br/>
       
       <br/><br/>
