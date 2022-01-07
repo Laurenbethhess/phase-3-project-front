@@ -55,7 +55,7 @@ function EditTodo({onUpdateTodo, todo}) {
           <option value="3">Exercise</option>
           <option value="4">Misc</option>
           <option value="5">Groceries</option>
-          <option value="6">Kids</option>
+          <option value="6">School</option>
         </select>
         <button type="submit">Update</button>
       </form>
