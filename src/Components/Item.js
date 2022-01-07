@@ -26,7 +26,8 @@ function Item({todo, onTodoDelete, onUpdateTodo}) {
     
     return (
         <div className='list'>
-                <li className='todo'>
+                <div className='todo'>
+                    <br/>
                     <b className='all-todos'>{todo.item.toUpperCase()}</b> 
                     <p className='all-todos'>importance: {todo.importance}</p>
                     <p className='all-todos'>category: {todo.category.category}</p>
@@ -38,7 +39,7 @@ function Item({todo, onTodoDelete, onUpdateTodo}) {
                     <>_______________________________________________</>
                     <br/><br/>
 
-                </li>
+                </div>
         </div>
     )
 }

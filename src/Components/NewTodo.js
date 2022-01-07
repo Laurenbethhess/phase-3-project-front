@@ -6,7 +6,7 @@ function NewTodo({onAddTodo}) {
     const [category_id, setCategoryId] = useState("0")
 
     function handleSubmit(e) {
-      e.preventDefault()
+      // e.preventDefault()
   
       fetch("http://localhost:9292/todos", {
         method: "POST",
@@ -29,26 +29,25 @@ function NewTodo({onAddTodo}) {
     }
   
     return (
-      <div className='todo'>
+      <div>
         <h3 className='all-todos'>Add New Todo</h3>
         <form onSubmit={handleSubmit}>
-          <label className='all-todos'>Todo</label>
           <input
             type="text"
             name="item"
             autoComplete="off"
             value={todo}
-            placeholder="item"
+            placeholder="add to-do"
             onChange={(e) => setTodo(e.target.value)}
           />
-          <label className='all-todos'>Importance</label>
           <select onChange={(e) => setImportance(e.target.value)}>
+            <option>Choose Importance</option>
             <option value="1. high">High</option>
             <option value="2. medium">Medium</option>
             <option value="3. low">Low</option>
           </select>
-          <label className='all-todos'>Category</label>
           <select onChange={(e) => setCategoryId(e.target.value)}>
+            <option>Choose Category</option>
             <option value="0">Not Assigned</option>
             <option value="1">Chores</option>
             <option value="2">Work</option>
@@ -59,6 +58,7 @@ function NewTodo({onAddTodo}) {
           </select>
           <button type="submit">Add Todo</button>
         </form>
+        <br/>
       </div>
       
     )
