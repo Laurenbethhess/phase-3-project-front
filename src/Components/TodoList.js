@@ -10,7 +10,7 @@ function TodoList({todo, onTodoDelete}) {
     }
     
     return (
-        <div>
+        <div className='all-todos'>
             {todo.importance == "1. high" ? (
                 <li className="red">{todo.item.toLowerCase()} <button onClick={handleDeleteClick}>🗑</button></li>
             ) : todo.importance == "2. medium" ? (
