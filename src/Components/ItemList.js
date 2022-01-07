@@ -26,8 +26,8 @@ function ItemList({todos, onTodoDelete, onUpdateTodo, onAddTodo}) {
             <div className='organize'>
                 <div className='dropdown'>
                     <div className='all-todos'>Filter by Category</div>
-                    <br/>
-                    <select onChange={onFilterChange} value={filterBy}>
+                   
+                    <select className='select' onChange={onFilterChange} value={filterBy}>
                         <option value="">Choose Category</option>
                         <option value="not assigned">Not Assigned</option>
                         <option value="work">Work</option>
@@ -60,7 +60,9 @@ function ItemList({todos, onTodoDelete, onUpdateTodo, onAddTodo}) {
                         <SearchBar onSearch={setSearch}/>
                         <br/>
                     </div>
+                    
                     {renderTodos}
+                    
                 </div>
             </div>
                 

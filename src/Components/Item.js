@@ -23,14 +23,24 @@ function Item({todo, onTodoDelete, onUpdateTodo}) {
         if (editor)
         return <EditTodo onUpdateTodo={handleUpdateTodo} todo={todo}/>
     }
+
+    function idName() {
+        if (todo.importance == "1. high") {
+            return 'high'
+        } else if (todo.importance == "2. medium") {
+            return 'medium'
+        } else if(todo.importance == "3. low") {
+            return 'low'
+        }
+    }
     
     return (
         <div className='list'>
-                <div className='todo'>
+                <div id={idName()}>
                     <br/>
-                    <b className='all-todos'>{todo.item.toUpperCase()}</b> 
-                    <p className='all-todos'>importance: {todo.importance}</p>
-                    <p className='all-todos'>category: {todo.category.category}</p>
+                    <b className='item-text'>{todo.item.toUpperCase()}</b> 
+                    <p className='item-text'>importance: {todo.importance}</p>
+                    <p className='item-text'>category: {todo.category.category}</p>
                     <button onClick={handleClick}>Edit</button>
                     {getEditor()}
                     <br/><br/>
