@@ -28,7 +28,6 @@ function EditTodo({onUpdateTodo, todo}) {
   
     return (
       <form onSubmit={handleFormSubmit}>
-       <label>Todo</label>
         <input
           type="text"
           name="item"
@@ -37,16 +36,13 @@ function EditTodo({onUpdateTodo, todo}) {
           placeholder="item"
           onChange={(e) => setTodo(e.target.value)}
         />
-        <label>Importance</label>
+
         <select onChange={(e) => setImportance(e.target.value)}>
           <option value={importance}>Update Importance</option>
           <option value="1. high">High</option>
           <option value="2. medium">Medium</option>
           <option value="3. low">Low</option>
-          
-          
         </select>
-        <label>Category</label>
         <select onChange={(e) => setCategoryId(e.target.value)}>
           <option value={category_id}>Update Category</option>
           <option value="0">Not Assigned</option>
@@ -55,7 +51,7 @@ function EditTodo({onUpdateTodo, todo}) {
           <option value="3">Exercise</option>
           <option value="4">Misc</option>
           <option value="5">Groceries</option>
-          <option value="6">Kids</option>
+          <option value="6">School</option>
         </select>
         <button type="submit">Update</button>
       </form>

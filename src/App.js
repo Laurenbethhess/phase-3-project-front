@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ItemList from './Components/ItemList'
 import NewTodo from './Components/NewTodo'
 import Header from './Components/Header'
+import moment from 'moment'
 
 function App() {
   const [todos, setTodos] = useState([])
@@ -36,11 +37,7 @@ function App() {
   return (
    <div className="center">
      <Header todos={todos} onTodoDelete={handleDeleteItem}/>
-     <h2>Enter New Todo</h2>
-     <NewTodo onAddTodo={handleAddTodo}/>
-     <>_______________________________________________</>
-     <br/>
-     <ItemList todos={todos} onTodoDelete={handleDeleteItem} onUpdateTodo={handleUpdateTodo}/>
+     <ItemList onAddTodo={handleAddTodo} todos={todos} onTodoDelete={handleDeleteItem} onUpdateTodo={handleUpdateTodo}/>
      <br/><br/>
    </div>
   )

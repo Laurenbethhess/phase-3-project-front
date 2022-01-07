@@ -23,40 +23,44 @@ function NewTodo({onAddTodo}) {
       .then(newTodo => {
         onAddTodo(newTodo)
         setTodo("")
-        setImportance("1. high")
-        setCategoryId("0")
+        setImportance(importance)
+        setCategoryId(category_id)
       })
     }
   
     return (
-      <form onSubmit={handleSubmit}>
-        <label>Todo</label>
-        <input
-          type="text"
-          name="item"
-          autoComplete="off"
-          value={todo}
-          placeholder="item"
-          onChange={(e) => setTodo(e.target.value)}
-        />
-        <label>Importance</label>
-        <select onChange={(e) => setImportance(e.target.value)}>
-          <option value="1. high">High</option>
-          <option value="2. medium">Medium</option>
-          <option value="3. low">Low</option>
-        </select>
-        <label>Category</label>
-        <select onChange={(e) => setCategoryId(e.target.value)}>
-          <option value="0">Not Assigned</option>
-          <option value="1">Chores</option>
-          <option value="2">Work</option>
-          <option value="3">Exercise</option>
-          <option value="4">Misc</option>
-          <option value="5">Groceries</option>
-          <option value="6">Kids</option>
-        </select>
-        <button type="submit">Add Todo</button>
-      </form>
+      <div>
+        <h3 className='all-todos'>Add New Todo</h3>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="item"
+            autoComplete="off"
+            value={todo}
+            placeholder="add to-do"
+            onChange={(e) => setTodo(e.target.value)}
+          />
+          <select onChange={(e) => setImportance(e.target.value)}>
+            <option value={importance}>Choose Importance</option>
+            <option value="1. high">High</option>
+            <option value="2. medium">Medium</option>
+            <option value="3. low">Low</option>
+          </select>
+          <select onChange={(e) => setCategoryId(e.target.value)}>
+            <option value={category_id}>Choose Category</option>
+            <option value="0">Not Assigned</option>
+            <option value="1">Chores</option>
+            <option value="2">Work</option>
+            <option value="3">Exercise</option>
+            <option value="4">Misc</option>
+            <option value="5">Groceries</option>
+            <option value="6">School</option>
+          </select>
+          <button type="submit">Add Todo</button>
+        </form>
+        <br/>
+      </div>
+      
     )
 }
 
