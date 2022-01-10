@@ -22,12 +22,28 @@ function ItemList({todos, onTodoDelete, onUpdateTodo, onAddTodo}) {
     const renderTodos = displayedTodos.map(todo => <Item todo={todo} key={todo.id} onTodoDelete={onTodoDelete} onUpdateTodo={onUpdateTodo} />)
 
     return (
-        <>
-            <div className='organize'>
+        <div className='flexer'>
+            <div className='flex'>
                 <div className='dropdown'>
-                    <div className='all-todos'>Filter by Category</div>
-                    <br/>
-                    <select onChange={onFilterChange} value={filterBy}>
+                    
+                <div className='info'>Make a New Todo</div>
+
+                    <div className='todo'>
+                        <NewTodo onAddTodo={onAddTodo}/>
+                    </div>
+
+                    <div className='info'>Search for Todos</div>
+                    
+                
+                    <div className='todo'>
+                        <br/>
+                        <SearchBar onSearch={setSearch}/>
+                        <br/>
+                    </div>
+
+                    <div className='info'>Filter by Category</div>
+                   
+                    <select className='select' onChange={onFilterChange} value={filterBy}>
                         <option value="">Choose Category</option>
                         <option value="not assigned">Not Assigned</option>
                         <option value="work">Work</option>
@@ -37,36 +53,34 @@ function ItemList({todos, onTodoDelete, onUpdateTodo, onAddTodo}) {
                         <option value="groceries">Groceries</option>
                         <option value="school">School</option>
                     </select>
-                </div>
-                <div className='search'>
-                    <div className='all-todos'>Add/Edit</div>
 
-                    
-                </div>
-            </div>
-
-            <div className='organize'>
-                <div className='todos-cat'>
+                    <div id='todos-cat'>
                     {renderTodosList}
                 </div>
-
-                <div className='to-do-list'>
-                    <div className='todo'>
-                        <NewTodo onAddTodo={onAddTodo}/>
-                    </div>
-                
-                    <div className='todo'>
-                        <br/>
-                        <SearchBar onSearch={setSearch}/>
-                        <br/>
-                    </div>
-                    {renderTodos}
                 </div>
+                {/* <div className='search'>
+                    
+
+                    
+                </div> */}
+            </div>
+
+            <div className='flex'>
+                
+            <div id='edit' className='info'>Edit Todos</div>
+
+                <div className='the-list'>
+                    
+                    
+                    {renderTodos}
+                    
+                </div>
+                
             </div>
                 
 
 
-        </>
+        </div>
     )
 }
 

@@ -12,11 +12,11 @@ function TodoList({todo, onTodoDelete}) {
     return (
         <div className='all-todos'>
             {todo.importance == "1. high" ? (
-                <li className="red">{todo.item.toLowerCase()} <button onClick={handleDeleteClick}>🗑</button></li>
+                <li className="red"><button className='trash' onClick={handleDeleteClick}>❌</button>{todo.item.toLowerCase()} </li>
             ) : todo.importance == "2. medium" ? (
-                <li className="orange">{todo.item.toLowerCase()} <button onClick={handleDeleteClick}>🗑</button></li>
+                <li className="orange"><button className='trash' onClick={handleDeleteClick}>❌</button>{todo.item.toLowerCase()} </li>
             ) : todo.importance == "3. low" ? (
-                <li className="green" >{todo.item.toLowerCase()} <button onClick={handleDeleteClick}>🗑</button></li> 
+                <li className="green" ><button className='trash' onClick={handleDeleteClick}>❌</button>{todo.item.toLowerCase()} </li> 
             ) : (
                 <li>{todo.item.toLowerCase()}</li> 
             )}
