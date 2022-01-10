@@ -32,6 +32,15 @@ function ItemList({todos, onTodoDelete, onUpdateTodo, onAddTodo}) {
                         <NewTodo onAddTodo={onAddTodo}/>
                     </div>
 
+                    <div className='info'>Search for Todos</div>
+                    
+                
+                    <div className='todo'>
+                        <br/>
+                        <SearchBar onSearch={setSearch}/>
+                        <br/>
+                    </div>
+
                     <div className='info'>Filter by Category</div>
                    
                     <select className='select' onChange={onFilterChange} value={filterBy}>
@@ -58,17 +67,10 @@ function ItemList({todos, onTodoDelete, onUpdateTodo, onAddTodo}) {
 
             <div className='flex'>
                 
-                
+            <div id='edit' className='info'>Edit Todos</div>
 
                 <div className='the-list'>
-                    <div className='info'>Search/Edit Todos</div>
                     
-                
-                    <div className='todo'>
-                        <br/>
-                        <SearchBar onSearch={setSearch}/>
-                        <br/>
-                    </div>
                     
                     {renderTodos}
                     

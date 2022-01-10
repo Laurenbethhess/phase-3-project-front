@@ -334,3 +334,7 @@ body {
   background-color: red;
   color: white;
 }
+
+#edit {
+  margin-bottom: 5px;
+}
