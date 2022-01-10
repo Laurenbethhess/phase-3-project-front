@@ -22,10 +22,17 @@ function ItemList({todos, onTodoDelete, onUpdateTodo, onAddTodo}) {
     const renderTodos = displayedTodos.map(todo => <Item todo={todo} key={todo.id} onTodoDelete={onTodoDelete} onUpdateTodo={onUpdateTodo} />)
 
     return (
-        <>
-            <div className='organize'>
+        <div className='flexer'>
+            <div className='flex'>
                 <div className='dropdown'>
-                    <div className='all-todos'>Filter by Category</div>
+                    
+                <div className='info'>Make a New Todo</div>
+
+                    <div className='todo'>
+                        <NewTodo onAddTodo={onAddTodo}/>
+                    </div>
+
+                    <div className='info'>Filter by Category</div>
                    
                     <select className='select' onChange={onFilterChange} value={filterBy}>
                         <option value="">Choose Category</option>
@@ -37,23 +44,25 @@ function ItemList({todos, onTodoDelete, onUpdateTodo, onAddTodo}) {
                         <option value="groceries">Groceries</option>
                         <option value="school">School</option>
                     </select>
-                </div>
-                <div className='search'>
-                    <div className='all-todos'>Add/Edit</div>
 
-                    
-                </div>
-            </div>
-
-            <div className='organize'>
-                <div className='todos-cat'>
+                    <div id='todos-cat'>
                     {renderTodosList}
                 </div>
+                </div>
+                {/* <div className='search'>
+                    
 
-                <div className='to-do-list'>
-                    <div className='todo'>
-                        <NewTodo onAddTodo={onAddTodo}/>
-                    </div>
+                    
+                </div> */}
+            </div>
+
+            <div className='flex'>
+                
+                
+
+                <div className='the-list'>
+                    <div className='info'>Search/Edit Todos</div>
+                    
                 
                     <div className='todo'>
                         <br/>
@@ -64,11 +73,12 @@ function ItemList({todos, onTodoDelete, onUpdateTodo, onAddTodo}) {
                     {renderTodos}
                     
                 </div>
+                
             </div>
                 
 
 
-        </>
+        </div>
     )
 }
 

@@ -21,7 +21,7 @@ function Item({todo, onTodoDelete, onUpdateTodo}) {
 
       function getEditor() {
         if (editor)
-        return <EditTodo onUpdateTodo={handleUpdateTodo} todo={todo}/>
+        return <EditTodo onUpdateTodo={handleUpdateTodo} todo={todo} onClick={handleClick} />
     }
 
     function idName() {
@@ -39,15 +39,13 @@ function Item({todo, onTodoDelete, onUpdateTodo}) {
                 <div id={idName()}>
                     <br/>
                     <b className='item-text'>{todo.item.toUpperCase()}</b> 
-                    <p className='item-text'>importance: {todo.importance}</p>
-                    <p className='item-text'>category: {todo.category.category}</p>
-                    <button onClick={handleClick}>Edit</button>
+                    <p className='item-text'>Importance: {todo.importance}</p>
+                    <p className='item-text'>Category: {todo.category.category}</p>
+                    <button className='btn' onClick={handleClick}>Edit</button>
                     {getEditor()}
                     <br/><br/>
-                    <button onClick={handleDeleteClick}>🗑</button>
-                    <br/><br/>
-                    <>_______________________________________________</>
-                    <br/><br/>
+                    <button className='trash'  onClick={handleDeleteClick}>❌</button>
+                   
 
                 </div>
         </div>

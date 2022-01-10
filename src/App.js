@@ -35,7 +35,7 @@ function App() {
   }
 
   return (
-   <div className="center">
+   <div className="main">
      <Header todos={todos} onTodoDelete={handleDeleteItem}/>
      <ItemList onAddTodo={handleAddTodo} todos={todos} onTodoDelete={handleDeleteItem} onUpdateTodo={handleUpdateTodo}/>
      <br/><br/>

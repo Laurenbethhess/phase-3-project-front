@@ -30,24 +30,24 @@ function NewTodo({onAddTodo}) {
   
     return (
       <div>
-        <h3 className='all-todos'>Add New Todo</h3>
+        {/* <h3 className='all-todos'>Add New Todo</h3> */}
         <form className='add-forum' onSubmit={handleSubmit}>
           <input
             type="text"
             name="item"
             autoComplete="off"
             value={todo}
-            placeholder="Add to-do..."
+            placeholder="Add Todo..."
             onChange={(e) => setTodo(e.target.value)}
           />
           <br></br>
-          <select id='importance' onChange={(e) => setImportance(e.target.value)}>
+          <select className='importance' onChange={(e) => setImportance(e.target.value)}>
             <option value={importance}>Choose Importance</option>
             <option value="1. high">High</option>
             <option value="2. medium">Medium</option>
             <option value="3. low">Low</option>
           </select>
-          <select id='category' onChange={(e) => setCategoryId(e.target.value)}>
+          <select className='category' onChange={(e) => setCategoryId(e.target.value)}>
             <option value={category_id}>Choose Category</option>
             <option value="0">Not Assigned</option>
             <option value="1">Chores</option>
@@ -58,7 +58,7 @@ function NewTodo({onAddTodo}) {
             <option value="6">School</option>
           </select>
           <br></br>
-          <button id='add' type="submit">Add Todo</button>
+          <button className='btn' id='add' type="submit">Add Todo</button>
         </form>
         <br/>
       </div>

@@ -22,8 +22,8 @@ function SearchBar({onSearch}) {
               onChange={(e) => setSearch(e.target.value)}
             />
             <br/>
-            <button id='enter' type="submit">Search</button>
-            <button id='reset' onClick={resetInputField}>Reset</button>
+            <button className='btn' id='enter' type="submit">Search</button>
+            <button className='btn' id='reset' onClick={resetInputField}>Reset</button>
           </form>
         );
       }
