@@ -21,7 +21,7 @@ function Item({todo, onTodoDelete, onUpdateTodo}) {
 
       function getEditor() {
         if (editor)
-        return <EditTodo onUpdateTodo={handleUpdateTodo} todo={todo} onClick={handleClick} />
+        return <EditTodo onUpdateTodo={handleUpdateTodo} todo={todo} />
     }
 
     function idName() {

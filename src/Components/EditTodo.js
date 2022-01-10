@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function EditTodo({onUpdateTodo, todo, onClick}) {
+function EditTodo({onUpdateTodo, todo}) {
     const [newTodo, setTodo] = useState(todo.item)
     const [importance, setImportance] = useState(todo.importance)
     const [category_id, setCategoryId] = useState(todo.category_id)
@@ -54,7 +54,7 @@ function EditTodo({onUpdateTodo, todo, onClick}) {
           <option value="6">School</option>
         </select>
         <br></br>
-        <button className='btn' type="submit" onClick={onClick}>Update</button>
+        <button className='btn' type="submit">Update</button>
       </form>
     )
 }
